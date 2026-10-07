@@ -20,5 +20,40 @@ k = 3
 Output:
 2
 
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/efa840f5-8b1b-44cd-a518-6ca746dbbd93" />
+        ┌─────────────┐
+        │    Start    │
+        └──────┬──────┘
+               ↓
+   ┌───────────────────────┐
+   │ Input Array and k     │
+   └───────────┬───────────┘
+               ↓
+   ┌───────────────────────┐
+   │ Calculate Prefix Sum  │
+   └───────────┬───────────┘
+               ↓
+   ┌───────────────────────┐
+   │ Initialize count = 0  │
+   │ Create Hash Map        │
+   └───────────┬───────────┘
+               ↓
+        ◇ Traverse ◇
+               ↓
+      ◇ prefixSum[j] == k? ◇
+          ↙           ↘
+        Yes             No
+         ↓               ↓
+    count++       val = prefixSum[j] - k
+         ↘               ↓
+          └──────→ ◇ Is val in Map? ◇
+                         ↓
+                  Update Hash Map
+                         ↓
+                  ◇ More Elements? ◇
+                    ↙           ↘
+                  Yes            No
+                   ↓              ↓
+                Repeat       Return count
+                                  ↓
+                                 End
             ─
